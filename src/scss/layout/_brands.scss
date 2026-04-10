@@ -1,0 +1,91 @@
+@use "../utils/breakpoints" as *;
+
+.brands {
+  padding-block: 60px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 11px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo-wrapper {
+    margin-bottom: 34px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: -23px;
+      width: 90px;
+      aspect-ratio: 1;
+      background-color: var(--color-text-black);
+      border-radius: 50%;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 11px;
+  }
+
+  &__description {
+    max-width: 770px;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 15px;
+    width: 100%;
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-row {
+      display: flex;
+      align-items: end;
+      column-gap: 30px;
+      flex-wrap: nowrap;
+      justify-content: center;
+      row-gap: 30px;
+
+      @media #{$xl}, #{$lg} {
+        flex-wrap: wrap;
+      }
+
+      @media #{$xs}, #{$sm}, #{$md} {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+      }
+
+      @media #{$xs} {
+        gap: 15px;
+      }
+    }
+
+    &-row:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    &-row:last-of-type {
+      align-items: start;
+    }
+
+    &-img {
+      @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+        width: 100%;
+      }
+    }
+  }
+}

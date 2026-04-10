@@ -1,0 +1,115 @@
+@use "../utils" as *;
+
+.pollination {
+  &__top {
+    background-color: var(--color-text-black);
+    color: var(--color-text-white);
+
+    &-inner {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 30px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 11px;
+
+    &-description {
+      max-width: 526px;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @media #{$md}, #{$sm}, #{$xs} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 9px;
+    }
+
+    &-text {
+      font-family: var(--accentFont);
+      font-size: clamp(14px, 1.26vw, 24px);
+      line-height: 125%;
+    }
+  }
+
+  &__bottom {
+    padding-top: 60px;
+    padding-bottom: 10px;
+
+    @media #{$xs}, #{$sm} {
+        padding-top: 40px;
+    }
+
+    &-title {
+      max-width: 770px;
+      text-align: center;
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 27px;
+    }
+
+    &-body {
+      position: relative;
+      width: 100%;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
+      gap: 30px;
+
+      @media #{$lg} {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media #{$xs}, #{$sm}, #{$md} {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -52px;
+        left: 50%;
+        translate: -50% 0;
+        width: 16px;
+        height: 10px;
+        background-color: var(--color-text-black);
+      }
+
+      &::after {
+        content: "Expand to view more";
+        position: absolute;
+        bottom: -38px;
+        left: 50%;
+        translate: -50% 0;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 133%;
+      }
+    }
+  }
+}

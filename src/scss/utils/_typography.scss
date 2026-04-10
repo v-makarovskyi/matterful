@@ -1,0 +1,44 @@
+@use "sass:map";
+
+$font-faces: (
+    "Montserrat-regular": (
+      family: "Montserrat",
+      weight: 400,
+      style: normal,
+      path: "../../fonts/Montserrat-Regular.woff2",
+      font-display: swap
+  ),
+  "Montserrat-bold": (
+    family: "Montserrat",
+    weight: 700,
+    style: normal,
+    path: "../../fonts/Montserrat-Bold.woff2",
+    font-display: swap
+  ),
+  "PlayfairDisplay-bold": (
+    family: "Playfair Display",
+    weight: 700,
+    style: normal,
+    path: "../../fonts/PlayfairDisplay-Bold.woff2",
+    font-display: swap
+  ),
+);
+
+@each $name, $data in $font-faces {
+    @font-face {
+        font-family: map.get($data, family);
+        src: url(#{map.get($data, path)}) format("woff2");
+        font-weight: map.get($data, weight);
+        font-style: map.get($data, style);
+        font-display: map.get($data, font-display);
+    }
+  
+}
+
+$mainFont: "Montserrat", sans-serif;
+$accentFont: "Playfair Display", serif;
+
+$font-sizes: (
+    "title-medium": clamp(18px, 1.56vw ,30px),
+    "title-big": clamp(20px, 1.87vw, 36px) 
+)

@@ -1,0 +1,19 @@
+@use "./typography" as *;
+@use "./colors" as *;
+
+:root {
+    --mainFont: #{$mainFont};
+    --accentFont: #{$accentFont};
+
+    --container-padding-x: 15px;
+
+    @each $size, $value in $font-sizes {
+        --#{$size}: #{$value};
+    };
+
+    @each $name, $shades in $colors {
+        @each $shade, $value in $shades {
+            --color-#{$name}-#{$shade}: #{$value};
+        } 
+    } 
+}

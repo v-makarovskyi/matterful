@@ -1,0 +1,8 @@
+@use "../utils";
+
+body {
+    background-color: var(--color-bg-main);
+    font-family: var(--mainFont);
+    color: var(--color-text-black);
+    font-size: 16px;
+}

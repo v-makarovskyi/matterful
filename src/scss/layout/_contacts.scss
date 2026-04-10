@@ -1,0 +1,141 @@
+@use "../utils/breakpoints" as *;
+
+.contacts {
+  margin-top: 75px;
+
+  &__list {
+    display: flex;
+    & > * {
+      flex: 1 1 auto;
+    }
+
+    @media #{$md}, #{$sm}, #{$xs} {
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    color: var(--color-text-white);
+
+    @media #{$xxl}, #{$xl}, #{$lg}, #{$md}, #{$sm}, #{$xs} {
+      flex-direction: column;
+      align-items: start;
+      row-gap: 10px;
+    }
+  }
+
+  &__address {
+    font-size: 14px;
+    line-height: 142%;
+    text-align: right;
+
+    & span {
+      font-weight: 700;
+    }
+
+    @media #{$xxl}, #{$xl}, #{$lg}, #{$md}, #{$sm}, #{$xs} {
+      text-align: left;
+    }
+  }
+
+  &__body {
+    padding-block: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title {
+      margin-bottom: 7px;
+    }
+
+    &-description {
+      max-width: 760px;
+      margin-bottom: 17px;
+      text-align: center;
+      font-size: clamp(14px, 1.04vw, 20px);
+      line-height: 140%;
+    }
+
+    &-btn {
+      padding-block: 16px;
+      padding-inline: 21px;
+      border: 1px solid var(--color-text-black);
+    }
+  }
+
+  &__footer {
+    padding-block: 60px;
+    padding-inline: 15px;
+    background-color: var(--color-text-black);
+    color: var(--color-text-white);
+
+    &-wrapper {
+      display: flex;
+      column-gap: 15px;
+
+      @media #{$xs}, #{$sm}, #{$md} {
+        flex-direction: column;
+        row-gap: 10px;
+      }
+    }
+
+    &-info {
+      padding-inline: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      @media #{$xs}, #{$sm}, #{$md} {
+        align-items: center;
+      }
+    }
+
+    &-title {
+      margin-bottom: 5px;
+    }
+
+    &-form {
+      flex: 1 1 auto;
+      display: flex;
+      column-gap: 30px;
+
+      &-input {
+        flex-basis: 100%;
+        border: none;
+        border-bottom: 1px solid var(--color-text-white);
+        background-color: inherit;
+        color: var(--color-text-white);
+
+        &::placeholder {
+          font-size: 14px;
+          color: var(--color-text-grey);
+        }
+      }
+
+      &-btn {
+        color: currentColor;
+        border: 1px solid currentColor;
+        padding-block: 20px;
+        padding-inline: 24px;
+
+        @media #{$xs}, #{$sm} {
+          font-size: 14px;
+          padding-block: 16px;
+          padding-inline: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@use "../utils/breakpoints" as *;
+
+.container {
+  $container-width: 1260px;
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+  max-width: calc(#{$container-width} - var(--container-padding-x) * 2);
+
+  &--size--big {
+    $container-wide-width: 1950px;
+    max-width: calc(#{$container-wide-width} - var(--container-padding-x) * 2);
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.big-title {
+  font-family: var(--accentFont);
+  line-height: 116%;
+  font-size: var(--title-big);
+  font-weight: 700;
+}
+
+.medium-title {
+  font-family: var(--accentFont);
+  line-height: 133%;
+  font-size: var(--title-medium);
+  font-weight: 700;
+}
+
+.overline {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-grey);
+}
+
+.section-description {
+  font-size: clamp(14px, 0.93vw ,18px);
+  line-height: 166%;
+
+  @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+    text-align: center;
+    @media #{$sm} {
+      line-height: 150%;
+    }
+
+    @media #{$xs} {
+      line-height: 140%;
+    }
+  }
+}
+
+//for ::before in food card
+.with-before::before {
+  content: "before";
+  height: 80px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+  background-color: #9fbdd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+.button {
+  display: inline-block;
+  border: none;
+  background-color: inherit;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.button:hover {
+  cursor: pointer;
+}

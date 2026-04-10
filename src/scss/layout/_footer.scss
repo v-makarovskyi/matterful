@@ -1,0 +1,135 @@
+@use "sass:selector";
+@use "../utils/breakpoints" as *;
+
+.footer {
+  &__body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    @media #{$xs}, #{$sm}, #{$md} {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+  }
+
+  &__logo {
+    align-self: flex-start;
+    @media #{$xs}, #{$sm}, #{$md} {
+        align-self: center;
+    }
+  }
+
+  &__info {
+    display: flex;
+    @media #{$xs}, #{$sm}, #{$md} {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    @media #{$xs} {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+  }
+
+  &__addresses {
+    &-list {
+      padding-inline: 15px;
+      @media #{$xs} {
+        align-self: start;
+    }
+    }
+
+    &-item:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &-wrapper {
+      display: flex;
+      column-gap: 15px;
+    }
+
+    &-title {
+      font-size: 20px;
+      line-height: 120%;
+      font-weight: 700;
+
+      &::after {
+        content: attr(data-title);
+        display: block;
+        font-size: 20px;
+        line-height: 120%;
+        text-transform: uppercase;
+        font-weight: 100;
+        -webkit-text-stroke: 0.5px var(--color-text-white);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__address {
+    font-size: 14px;
+    line-height: 170%;
+  }
+
+  &__contacts {
+    padding-inline: 15px;
+    @media #{$xs} {
+        align-self: end;
+    }
+
+    &-title {
+      margin-bottom: 14px;
+      font-family: var(--accentFont);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 134%;
+    }
+
+    &-email {
+      margin-bottom: 18px;
+      display: block;
+      font-size: 14px;
+    }
+  }
+
+  &__social {
+    display: inline-flex;
+    column-gap: 10px;
+
+    @at-root #{selector.nest(&, ".footer__facebook, .footer__instagram, .footer__x")} {
+      position: relative;
+    }
+
+    @at-root #{selector.nest(&, ".footer__facebook::after, .footer__instagram::after, .footer__x::after")} {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      aspect-ratio: 1;
+      background-color: var(--color-text-black);
+      border-radius: 50%;
+      z-index: -1;
+    }
+  }
+
+  &__extra {
+    padding-block: 16px;
+    background-color: var(--color-text-black);
+    text-align: center;
+    color: var(--color-text-white);
+    font-size: 12px;
+
+    & > p {
+        margin-inline: auto;
+        max-width: 260px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../utils/breakpoints" as *;
+
+.featured {
+    padding-inline: 15px;
+  background: border-box var(--color-bg-main)
+    url("../../images/featured/fetured-bg.jpg") top/cover no-repeat;
+
+  &__wrapper {
+    width: 95%;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+
+    @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+        width: 100%;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+  }
+
+  &__body {
+    padding-top: 32px;
+    padding-left: 15px;
+    padding-right: 81px;
+    padding-bottom: 41px;
+    padding: 32px 81px 41px 15px;
+
+    @media #{$xl} {
+      padding-right: 16px;
+    }
+
+    @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+        padding: 10px;
+    }
+  }
+
+  &__line-above {
+    display: block;
+
+    @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+        text-align: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    @media #{$xs}, #{$sm}, #{$md}, #{$lg} {
+        text-align: center;
+    }
+  }
+
+  &__description {
+    max-width: 472px;
+  }
+
+  &__img {
+    @media #{$xxl} {
+        width: 90%;
+    }
+    @media #{$xl} {
+        width: 75%;
+    }
+  }
+}
