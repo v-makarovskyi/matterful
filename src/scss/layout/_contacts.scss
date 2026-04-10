@@ -62,6 +62,9 @@
 
     &-title {
       margin-bottom: 7px;
+      @media #{$xs} {
+        text-align: center;
+      }
     }
 
     &-description {
@@ -71,7 +74,7 @@
       font-size: clamp(14px, 1.04vw, 20px);
       line-height: 140%;
 
-      #{$xs} {
+      @media #{$xs} {
         text-align: justify;
       }
     }
